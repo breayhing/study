@@ -1,4 +1,4 @@
-use std::cell::RefCell;
+use std::cell::{Ref, RefCell};
 use std::rc::Rc;
 
 #[derive(Debug)]
@@ -90,19 +90,6 @@ fn delete_from_bst(
     Some(Rc::clone(&root))
 }
 
-fn main() {
-    println!("hello");
-    let mut root = None;
-    root = insert_into_bst(&root, 4);
-    root = insert_into_bst(&root, 2);
-    root = insert_into_bst(&root, 3);
-    root = delete_from_bst(root, 3); // Delete the node with value 3
-    let mut collected_values = Vec::new();
-    in_order_traversal(&root, &mut collected_values);
-    for ans in collected_values{
-        println!("{}",ans);
-    }
-}
 
 #[cfg(test)]
 mod tests {
